@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Molecular Structure Viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/molstar@4.18.0/build/viewer/molstar.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Molecular Structure Viewer</h1>
+        <p class="subtitle">Upload and visualize .cif files with Molstar</p>
+      </header>
+
+      <div class="main-content">
+        <div class="upload-section">
+          <h2 class="section-title">Upload CIF File</h2>
+          <div class="upload-area" id="drop-area">
+            <div class="upload-icon">📁</div>
+            <p class="upload-text">Drag & drop your .cif file here</p>
+            <p>or</p>
+            <input
+              type="file"
+              id="file-input"
+              class="file-input"
+              accept=".cif" />
+            <button class="btn" id="browse-btn">Browse Files</button>
+          </div>
+
+          <div class="file-info" id="file-info" style="display: none">
+            <h3>Selected File</h3>
+            <p><strong>Name:</strong> <span id="file-name"></span></p>
+            <p><strong>Size:</strong> <span id="file-size"></span></p>
+          </div>
+
+          <div
+            class="message error"
+            id="error-message"
+            style="display: none"></div>
+          <div
+            class="message success"
+            id="success-message"
+            style="display: none"></div>
+        </div>
+
+        <div class="viewer-section">
+          <h2 class="section-title">3D Molecular Visualization</h2>
+          <div class="viewer-container">
+            <div id="molstar-viewer"></div>
+            <div class="loading" id="loading" style="display: none">
+              <div class="spinner"></div>
+              <p>Loading structure...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Powered by Molstar | Created with Angular-like Components</p>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/molstar@4.18.0/build/viewer/molstar.min.js"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
